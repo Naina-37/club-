@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PCTE Club Elections</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Font Awesome Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styel.css') }}">
+  </head>
+  <body class="bg-danger text-white">
+    <!-- navbar -->
+    <!-- navbar which shifts to sidebar in smaller screens -->
+  <nav class="navbar navbar-dark navbar-expand-md bg-dark sticky-top">
+    <div class="container-fluid mx-3 mx-lg-5">
+      <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='assets/01.jpg') }}" alt="PCTE Logo" style="width: 60px;height: 60px;"><span class="d-none d-sm-inline"> PCTE | Club Elections</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='assets/01.jpg') }}" alt="PCTE Logo">
+          </a>
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">PCTE Club Elections</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-3 me-lg-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-vote-yea"></i> Voting
+            </a>
+            
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-check-circle"></i> Check Results</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+      
+      <!-- club section -->
+      <div class="container text-center">
+        <h1 class="mt-2">Welcome to PCTE Club ELECTION!!</h1>
+      <div class="container text-center">
+        <h2>Our Sports Activity club</h2>
+        <div class="container row w-100 d-flex gap-4 my-3 p-3"> 
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/02.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Basketball club</h5>
+              <p class="card-text">Step up your game with our Basketball Club! A place to compete, grow, and have fun with teammates who share your passion for basketball......</p>
+              <a href="{{ url_for('basketball') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/football.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Football club</h5>
+              <p class="card-text">Kick off your passion for football with our Football Club! It’s where skill meets teamwork, and every game is an opportunity to shine.......</p>
+              <a href="{{ url_for('football') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/bad.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Badminton club</h5>
+              <p class="card-text">Smash your goals with our Badminton Club! Whether you're playing for fun or aiming for competition, join us to improve your skills!.........</p>
+              <a href="{{ url_for('bad1') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/cri.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Cricket club</h5>
+              <p class="card-text">Join our Cricket Club and experience the thrill of the game! Whether you're a bowler, batsman, or all-rounder, there's a place for you on the team.........</p>
+              <a href="{{ url_for('cricket') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/table.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Table Tennis club</h5>
+              <p class="card-text">Bounce into action with our Table Tennis Club! Whether you're a beginner or a pro, come sharpen your skills and enjoy fast-paced fun with fellow enthusiasts............</p>
+              <a href="{{ url_for('table1') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+      <div class="container text-center">
+        <h2>Our Cultural Activity club</h2>
+        <div class="container row w-100 d-flex gap-4 my-3 justify-content-center">
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/dance.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Dance club</h5>
+              <p class="card-text">Unleash your moves at our Dance Club! Wher you can get a space to express yourself, learn new styles, and groove with a vibrant community of dancers........</p>
+              <a href="{{ url_for('dance') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/theatre.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Theatre club</h5>
+              <p class="card-text">Step into the spotlight with our Theatre Club! Explore your creativity, bring stories to life, and shine on stage with a passionate group of performers........</p>
+              <a href="{{ url_for('the') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/music.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Music club</h5>
+              <p class="card-text">Join our Music Club and let your talent shine! Whether you sing, play, or compose, this is the perfect place to connect, create, and groove with fellow music lovers......</p>
+              <a href="{{ url_for('music') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/cre.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Literary club</h5>
+              <p class="card-text">Dive into the world of literacy with our Literary Club! Explore, express, and engage through writing, reading, and thought-provoking discussions and debates..........</p>
+              <a href="{{ url_for('lie') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/tech.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">Techno club</h5>
+              <p class="card-text">Fuel your innovation at our Techno Club! Dive into the latest tech trends, work on exciting projects, and connect with fellow tech workers and enthusiasts.........</p>
+              <a href="{{ url_for('tech') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/eoa.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">EOA</h5>
+              <p class="card-text">Join the EOA Club and make every college event unforgettable! From dazzling parties to epic celebrations, we’re all about bringing fun and energy to campus life.........</p>
+              <a href="{{ url_for('eoa') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+          <div class="card bg-black" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='assets/csr.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-danger">CSR</h5>
+              <p class="card-text">Be the change with our CSR Club! Join us in making a difference through donations, volunteering, and impactful initiatives for a better tomorrow........</p>
+              <a href="{{ url_for('csr') }}" class="btn btn-danger">See More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- footer section -->
+      <footer class="bg-dark text-white text-center pt-3 pb-2 mt-auto">
+        <div class="container">
+          <img class="img-fluid" src="{{ url_for('static', filename='assets/03.png') }}" alt="...">
+          <p class="mb-0">&copy; 2025 PCTE Club Election | All rights reserved.</p>
+        </div>
+      </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>

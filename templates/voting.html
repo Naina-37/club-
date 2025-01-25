@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styel.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .card:hover{
+            transform: scale(1.05);
+            transition: transform 0.5s;
+            background: #b02a37;
+        }
+    </style>
+</head>
+
+<body class="bg-danger text-white">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-dark sticky-top">
+        <div class="container-fluid mx-3 mx-lg-5">
+            <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='assets/01.jpg') }}" alt="PCTE Logo" style="width: 60px;height: 60px;"><span class="d-none d-sm-inline">PCTE | Club Elections</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='assets/01.jpg') }}" alt="PCTE Logo"></a>
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">PCTE Club Elections</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-3 me-lg-4">
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/index"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/voting"><i class="fas fa-vote-yea"></i> Voting</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact"><i class="fas fa-envelope"></i> Contact us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 w-100">Vote for Your Favorite Candidate</h1>
+
+        <!-- Flash messages for success or failure -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert alert-{{ messages[0][0] }} alert-dismissible fade show" role="alert">
+            {{ messages[0][1] }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Display candidates grouped by position -->
+        {% for position, candidates in candidates_by_position.items() %}
+        <div class="mt-5">
+            <h3 class="text-center text-primary">{{ position }}</h3>
+            <div class="row justify-content-center">
+                {% for candidate in candidates %}
+                <div class="col-md-4">
+                    <div class="card text-center shadow">
+                        <img src="{{ url_for('static', filename='uploads/' + (candidate.image or 'default.jpg')) }}" 
+                             class="card-img-top" alt="Candidate Photo" style="max-height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ candidate.candidate_name }}</h5>
+                            <p class="card-text"><strong>Department:</strong> {{ candidate.department }}</p>
+                            <p class="card-text"><strong>Club Name:</strong> {{ candidate.club_name }}</p>
+                            <!-- Voting Form -->
+                            <form action="{{ url_for('vote', candidate_id=candidate['_id']) }}" method="POST">
+                                <button type="submit" class="btn btn-primary">Vote</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer class="bg-dark text-white text-center pt-3 pb-2 mt-auto mb-0">
+        <div class="container">
+            <img class="img-fluid" src="{{ url_for('static', filename='assets/03.png') }}" alt="...">
+            <p class="mb-0">&copy; 2025 PCTE Club Election | All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
