@@ -1,0 +1,25 @@
+/* Custom styling */
+.nav-link {
+    padding: 0.5rem 1.5rem;
+    margin: 0 5px;
+    border-radius: 20px; /* Optional: Round the corners */
+}
+
+/* Change color of non-active links to text-white */
+.navbar-nav .nav-link:not(.active) {
+    color: #ffffff !important; /* Bootstrap's "text-white" color */
+}
+
+/* Optional: Hover effect for hover links */
+.navbar-nav .nav-link:hover {
+    /* color: #f8f9fa !important; Slightly lighter shade of white for hover effect */
+    background-color: #b02a37;
+}
+
+
+/* Optional: Change background color to danger */
+.navbar-nav .nav-link.active {
+    background-color: #dc3545; /* Bootstrap's "danger" color */
+}
+
+
